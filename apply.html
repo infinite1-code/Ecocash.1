@@ -1,162 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#003366">
-    <title>EcoCash Loan | Secure Loan Application</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --blue-dark: #001a33;
-            --blue: #003366;
-            --blue-mid: #004d99;
-            --blue-light: #0077cc;
-            --blue-bright: #00aaff;
-            --red: #e30613;
-            --green: #00a651;
-            --white: #ffffff;
-            --light: #f0f6ff;
-            --dark: #0d1b2a;
-            --muted: #5a6d80;
-            --border: #d0dce8;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#003366">
+<title>Festive Loan Application</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        body {
-            background: #f0f4f8;
-            color: var(--dark);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            position: relative;
-        }
+<style>
+:root {
+    --navy:#001a33;
+    --blue:#003b82;
+    --light-blue:#0878d1;
+    --red:#e30613;
+    --green:#078746;
+    --gold:#ffc83d;
+    --white:#fff;
+    --text:#10233d;
+    --muted:#64748b;
+    --border:#d9e4f0;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+    font-family:Poppins,Arial,sans-serif;
+    min-height:100vh;
+    padding:90px 16px 35px;
+    background:linear-gradient(145deg,#eaf3ff,#f8fbff 55%,#fff2f2);
+    color:var(--text);
+}
+.header-bar {
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:10;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 6%;
+    box-shadow:0 3px 15px #001a3310;
+}
+.logo { font-size:24px; font-weight:900; text-decoration:none; }
+.eco { color:var(--blue); }
+.cash { color:var(--red); }
+.back-link {
+    text-decoration:none;
+    color:var(--blue);
+    font-size:13px;
+    font-weight:700;
+}
+.page-wrap { max-width:510px; margin:auto; }
+.season-heading { text-align:center; margin:0 auto 22px; }
+.gift { font-size:37px; margin-bottom:5px; }
+.season-heading h1 {
+    color:var(--navy);
+    font-size:clamp(25px,6vw,34px);
+    font-weight:900;
+    line-height:1.2;
+}
+.season-heading h1 span { color:var(--red); }
+.season-heading p {
+    color:var(--muted);
+    font-size:13px;
+    margin-top:8px;
+}
+.offer {
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-top:13px;
+    padding:8px 13px;
+    background:#e0f7e9;
+    color:#08783d;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:800;
+}
+.form-container {
+    position:relative;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:28px;
+    box-shadow:0 16px 45px #00336612;
+    overflow:hidden;
+}
+.form-container:before {
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:6px;
+    background:linear-gradient(90deg,var(--blue),var(--red),var(--gold));
+}
+.form-header { text-align:center; margin-bottom:25px; }
+.form-header h2 { font-size:21px; font-weight:900; color:var(--navy); }
+.form-header p { color:var(--muted); font-size:12px; margin-top:4px; }
+.progress-bar { display:flex; gap:7px; margin-top:18px; }
+.progress-segment {
+    height:5px; flex:1;
+    background:#e7edf4;
+    border-radius:10px;
+}
+.progress-segment.active { background:var(--blue); }
 
-        .orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; animation: float 15s infinite alternate ease-in-out; }
-        .orb-1 { width: 400px; height: 400px; background: rgba(0,51,102,0.15); top: -10%; left: -5%; }
-        .orb-2 { width: 350px; height: 350px; background: rgba(0,119,204,0.1); bottom: -5%; right: -5%; animation-delay: -5s; }
-        @keyframes float { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px,-50px) scale(1.1); } }
+.form-step { display:none; }
+.form-step.active { display:block; animation:fadeIn .25s ease; }
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(5px); }
+    to { opacity:1; transform:translateY(0); }
+}
+.form-group { margin-bottom:19px; }
+.form-group label {
+    display:block;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:7px;
+    color:var(--blue);
+}
+.input-wrapper { position:relative; }
+.input-wrapper i {
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#8294aa;
+    font-size:14px;
+}
+.form-control {
+    width:100%;
+    padding:13px 14px 13px 40px;
+    border:1.5px solid var(--border);
+    border-radius:11px;
+    background:#fbfdff;
+    color:var(--text);
+    font-family:inherit;
+    font-size:14px;
+    outline:none;
+}
+select.form-control { padding-left:12px; }
+.form-control:focus {
+    border-color:var(--light-blue);
+    box-shadow:0 0 0 3px #0878d118;
+}
+.form-control:invalid { color:var(--text); }
+.name-row { display:flex; gap:12px; }
+.name-row .form-group { min-width:0; flex:1; }
 
-        .header-bar {
-            position: fixed; top: 0; left: 0; right: 0;
-            background: var(--white);
-            padding: 14px 5%;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
+.summary-box {
+    background:#f3f8ff;
+    border:1px solid #dceaff;
+    border-radius:14px;
+    padding:17px;
+    margin-bottom:20px;
+}
+.summary-box h3 { font-size:15px; margin-bottom:14px; }
+.summary-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    font-size:12px;
+    padding:9px 0;
+    border-bottom:1px dashed var(--border);
+}
+.summary-row:last-of-type { border-bottom:0; }
+.summary-value { font-weight:700; text-align:right; overflow-wrap:anywhere; }
+.highlight-value { color:var(--green); font-weight:900; font-size:16px; text-align:right; }
+.interest-badge {
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+    background:#dff7e8;
+    color:#08783d;
+    font-weight:900;
+    font-size:12px;
+    margin-top:12px;
+}
+.button-group { display:flex; gap:10px; margin-top:25px; }
+.btn {
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 12px;
+    border:0;
+    border-radius:11px;
+    font-family:inherit;
+    font-size:12px;
+    font-weight:900;
+    cursor:pointer;
+}
+.btn-primary { background:var(--red); color:white; }
+.btn-primary:hover { background:#bd0010; }
+.btn-primary:disabled { opacity:.6; cursor:not-allowed; }
+.btn-secondary { background:#edf2f7; color:var(--blue); }
+.notice {
+    font-size:10px;
+    color:var(--muted);
+    text-align:center;
+    margin-top:15px;
+    line-height:1.6;
+}
+.footer-note { text-align:center; font-size:11px; color:var(--muted); margin-top:20px; }
 
-        .header-bar .logo { font-size: 22px; font-weight: 900; text-decoration: none; }
-        .header-bar .logo .eco { color: var(--blue); }
-        .header-bar .logo .cash { color: var(--red); }
-        .header-bar .back-link { margin-left: 16px; font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-        .header-bar .back-link:hover { color: var(--blue); }
-
-        .form-container {
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 8px 32px 0 rgba(0,26,51,0.1);
-            width: 100%;
-            max-width: 500px;
-            border-radius: 24px;
-            padding: 40px;
-            margin-top: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-container::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 6px;
-            background: var(--blue);
-        }
-
-        .form-header { text-align: center; margin-bottom: 30px; }
-        .form-header h2 { font-size: 26px; font-weight: 900; color: var(--blue-dark); margin-bottom: 8px; }
-        .form-header p { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
-
-        .progress-bar { display: flex; justify-content: center; gap: 8px; }
-        .progress-segment { height: 6px; width: 33%; background-color: rgba(0,0,0,0.05); border-radius: 10px; transition: all 0.4s ease; }
-        .progress-segment.active { background-color: var(--blue); box-shadow: 0 0 8px rgba(0,51,102,0.4); }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
-        .input-wrapper { position: relative; display: flex; align-items: center; }
-        .input-wrapper i { position: absolute; left: 15px; color: #94a3b8; font-size: 14px; }
-        .form-control {
-            width: 100%;
-            padding: 14px 15px 14px 40px;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-size: 15px;
-            color: var(--dark);
-            background-color: rgba(255,255,255,0.9);
-            outline: none;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-        select.form-control, textarea.form-control { padding-left: 15px; }
-        .form-control:focus { border-color: var(--blue-light); background-color: var(--white); box-shadow: 0 0 0 4px rgba(0,51,102,0.1); }
-
-        .summary-box {
-            background: rgba(255,255,255,0.9);
-            border-left: 4px solid var(--blue);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; border-bottom: 1px dashed var(--border); padding-bottom: 8px; }
-        .summary-value { font-weight: 700; color: var(--dark); }
-        .highlight-value { color: var(--blue); font-size: 18px; font-weight: 900; }
-
-        .button-group { display: flex; gap: 12px; margin-top: 30px; }
-        .btn {
-            flex: 1; padding: 16px; border-radius: 12px; font-size: 14px; font-weight: 800;
-            cursor: pointer; border: none; transition: all 0.3s;
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-            font-family: inherit; text-transform: uppercase;
-        }
-        .btn-primary { background-color: var(--blue); color: white; }
-        .btn-primary:hover { background-color: var(--blue-light); }
-        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
-        .btn-secondary { background-color: rgba(0,0,0,0.05); color: var(--muted); }
-
-        .form-step { display: none; }
-        .form-step.active { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-
-        .name-row { display: flex; gap: 12px; }
-        .name-row .form-group { flex: 1; }
-
-        @media (max-width: 500px) {
-            .form-container { padding: 28px 20px; }
-            .name-row { flex-direction: column; gap: 0; }
-            .form-header h2 { font-size: 22px; }
-            .button-group { flex-direction: column; }
-        }
-    </style>
+@media(max-width:480px) {
+    body { padding:82px 12px 25px; }
+    .form-container { padding:24px 18px; }
+    .name-row { flex-direction:column; gap:0; }
+    .button-group { flex-direction:column; }
+    .logo { font-size:22px; }
+}
+</style>
 </head>
-<body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
 
-    <div class="header-bar">
-        <a href="index.html" class="logo"><span class="eco">Eco</span><span class="cash">Cash</span></a>
-        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back</a>
+<body>
+<header class="header-bar">
+    <a href="index.html" class="logo">
+        <span class="eco">Eco</span><span class="cash">Cash</span>
+    </a>
+    <a href="index.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+</header>
+
+<main class="page-wrap">
+    <div class="season-heading">
+        <div class="gift" aria-hidden="true">🎄🎁</div>
+        <h1>Make It A <span>Merry Christmas!</span></h1>
+        <p>Complete your festive loan application.</p>
+        <div class="offer">
+            <i class="fa-solid fa-gift"></i>
+            FESTIVE OFFER · 0% INTEREST*
+        </div>
     </div>
 
-    <div class="form-container">
+    <section class="form-container">
         <div class="form-header">
-            <h2>Loan Application</h2>
-            <p id="step-indicator">Step 1: Loan Details</p>
+            <h2 id="form-title">Loan Details</h2>
+            <p id="step-indicator">Step 1 of 3 · Choose your loan</p>
             <div class="progress-bar">
                 <div class="progress-segment active" id="prog-1"></div>
                 <div class="progress-segment" id="prog-2"></div>
@@ -165,178 +248,250 @@
         </div>
 
         <form id="loanForm">
-            <!-- Step 1: Loan Details -->
             <div class="form-step active" id="step-1">
                 <div class="form-group">
-                    <label>Loan Type</label>
+                    <label for="loanType">Loan Purpose</label>
                     <select class="form-control" id="loanType" required>
-                        <option value="" disabled selected>Select a loan type...</option>
-                        <option value="Personal Loan">Personal Loan</option>
-                        <option value="Business/SME Loan">Business/SME Loan</option>
-                        <option value="Education/Student Loan">Education/Student Loan</option>
-                        <option value="Emergency/Medical Loan">Emergency/Medical Loan</option>
+                        <option value="" disabled selected>Select purpose</option>
+                        <option value="Personal">Personal expenses</option>
+                        <option value="Business">Business</option>
+                        <option value="Education">Education</option>
+                        <option value="Emergency">Emergency expenses</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label>Loan Amount (USD)</label>
+                    <label for="loanAmount">Loan Amount (USD)</label>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-money-bill-wave"></i>
-                        <input type="number" class="form-control" id="loanAmount" placeholder="e.g. 2500" required>
+                        <input type="number" class="form-control" id="loanAmount"
+                               min="500" max="10000" step="100"
+                               placeholder="500 – 10,000" required>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Repayment Term</label>
+                    <label for="loanTerm">Repayment Period</label>
                     <select class="form-control" id="loanTerm" required>
-                        <option value="" disabled selected>Select duration...</option>
-                        <option value="1">1 Month</option>
-                        <option value="2">2 Months</option>
-                        <option value="3">3 Months</option>
-                        <option value="4">4 Months</option>
-                        <option value="5">5 Months</option>
-                        <option value="6">6 Months</option>
+                        <option value="" disabled selected>Select duration</option>
+                        <option value="1">1 month</option>
+                        <option value="2">2 months</option>
+                        <option value="3">3 months</option>
+                        <option value="4">4 months</option>
+                        <option value="5">5 months</option>
+                        <option value="6">6 months</option>
                     </select>
                 </div>
+
                 <div class="button-group">
-                    <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep(1)">
+                        Continue <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Step 2: Personal Info -->
             <div class="form-step" id="step-2">
                 <div class="name-row">
                     <div class="form-group">
-                        <label>First Name</label>
+                        <label for="firstName">First Name</label>
                         <div class="input-wrapper">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" class="form-control" id="firstName" placeholder="Legal First Name" required>
+                            <input type="text" class="form-control" id="firstName"
+                                   autocomplete="given-name" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Last Name</label>
+                        <label for="lastName">Last Name</label>
                         <div class="input-wrapper">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" class="form-control" id="lastName" placeholder="Legal Last Name" required>
+                            <input type="text" class="form-control" id="lastName"
+                                   autocomplete="family-name" required>
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Phone Number</label>
+                    <label for="phone">Mobile Number</label>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-phone"></i>
-                        <input type="tel" class="form-control" id="phone" placeholder="e.g. 771234567" inputmode="numeric" maxlength="9" required>
+                        <input type="tel" class="form-control" id="phone"
+                               placeholder="Your mobile number"
+                               autocomplete="tel" inputmode="tel"
+                               maxlength="16" required>
                     </div>
                 </div>
+
                 <div class="button-group">
-                    <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
-                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                        <i class="fa-solid fa-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                        Review <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Step 3: Summary -->
             <div class="form-step" id="step-3">
                 <div class="summary-box">
-                    <h4 style="margin-bottom: 14px; font-size: 15px; color: var(--blue-dark);">Application Summary</h4>
-                    <div class="summary-row"><span>Applicant:</span><span class="summary-value" id="sum-name">-</span></div>
-                    <div class="summary-row"><span>Phone:</span><span class="summary-value" id="sum-phone">-</span></div>
-                    <div class="summary-row"><span>Loan Type:</span><span class="summary-value" id="sum-type">-</span></div>
-                    <div class="summary-row"><span>Loan Request:</span><span class="summary-value" id="sum-amount">-</span></div>
-                    <div class="summary-row"><span>Duration:</span><span class="summary-value" id="sum-term">-</span></div>
-                    <div class="summary-row" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                        <span>Est. Monthly Repayment:</span>
-                        <span class="highlight-value" id="sum-emi">-</span>
+                    <h3>Review Your Details</h3>
+                    <div class="summary-row">
+                        <span>Applicant</span><span class="summary-value" id="sum-name">—</span>
                     </div>
+                    <div class="summary-row">
+                        <span>Mobile</span><span class="summary-value" id="sum-phone">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Purpose</span><span class="summary-value" id="sum-type">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Amount</span><span class="summary-value" id="sum-amount">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Duration</span><span class="summary-value" id="sum-term">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Estimated monthly repayment</span>
+                        <span class="highlight-value" id="sum-emi">—</span>
+                    </div>
+                    <div class="interest-badge">0% INTEREST*</div>
                 </div>
+
+                <label style="display:flex;gap:9px;align-items:flex-start;font-size:11px;line-height:1.5;margin-bottom:10px">
+                    <input type="checkbox" id="termsAccepted" required style="margin-top:3px">
+                    I have reviewed my details and understand that eligibility, fees and final loan terms must be confirmed before accepting an offer.
+                </label>
+
                 <div class="button-group">
-                    <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Back</button>
-                    <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitApplication()">
-                        Confirm &amp; Apply <i class="fa-solid fa-check"></i>
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
+                        <i class="fa-solid fa-arrow-left"></i> Back
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        Continue <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
         </form>
-    </div>
 
-    <script>
-        const stepTitles = [
-            "Step 1: Loan Details",
-            "Step 2: Personal Info",
-            "Step 3: Review &amp; Confirm"
-        ];
+        <p class="notice">
+            *Interest-free terms apply only if confirmed in the official offer.
+            Any applicable fees and repayment conditions should be disclosed before acceptance.
+        </p>
+    </section>
 
-        const INTEREST_RATE = 0.089;
+    <p class="footer-note">🎄 Wishing you a joyful festive season 🎄</p>
+</main>
 
-        function nextStep(current) {
-            if (current === 1) {
-                if (!document.getElementById('loanType').value ||
-                    !document.getElementById('loanAmount').value ||
-                    !document.getElementById('loanTerm').value) {
-                    alert('Please fill in all fields before continuing.');
-                    return;
-                }
-            }
-            if (current === 2) {
-                if (!document.getElementById('firstName').value ||
-                    !document.getElementById('lastName').value ||
-                    !document.getElementById('phone').value) {
-                    alert('Please fill in all fields before continuing.');
-                    return;
-                }
-                populateSummary();
-            }
-            document.getElementById('step-' + current).classList.remove('active');
-            document.getElementById('step-' + (current + 1)).classList.add('active');
-            document.getElementById('step-indicator').textContent = stepTitles[current];
-            document.getElementById('prog-' + (current + 1)).classList.add('active');
+<script>
+const stepTitles = [
+    "Loan Details",
+    "Your Details",
+    "Review Application"
+];
+
+let currentStep = 1;
+
+function showStep(step) {
+    document.querySelectorAll(".form-step").forEach((el, index) => {
+        el.classList.toggle("active", index + 1 === step);
+    });
+
+    document.querySelectorAll(".progress-segment").forEach((el, index) => {
+        el.classList.toggle("active", index < step);
+    });
+
+    document.getElementById("form-title").textContent = stepTitles[step - 1];
+    document.getElementById("step-indicator").textContent =
+        `Step ${step} of 3 · ${stepTitles[step - 1]}`;
+
+    currentStep = step;
+}
+
+function validateStep(step) {
+    const container = document.getElementById("step-" + step);
+    const fields = container.querySelectorAll("input, select");
+
+    for (const field of fields) {
+        if (field.type === "checkbox" && step !== 3) continue;
+        if (!field.checkValidity()) {
+            field.reportValidity();
+            return false;
         }
+    }
+    return true;
+}
 
-        function prevStep(current) {
-            document.getElementById('step-' + current).classList.remove('active');
-            document.getElementById('step-' + (current - 1)).classList.add('active');
-            document.getElementById('step-indicator').textContent = stepTitles[current - 2];
-            document.getElementById('prog-' + current).classList.remove('active');
+function nextStep(step) {
+    if (!validateStep(step)) return;
+
+    if (step === 1) {
+        const amount = Number(document.getElementById("loanAmount").value);
+
+        if (amount < 500 || amount > 10000 || amount % 100 !== 0) {
+            alert("Enter an amount between USD 500 and USD 10,000 in increments of USD 100.");
+            return;
         }
+    }
 
-        function populateSummary() {
-            var amount = document.getElementById('loanAmount').value;
-            var term = document.getElementById('loanTerm').value;
-            var type = document.getElementById('loanType').value;
-            var name = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
-            var phone = document.getElementById('phone').value;
+    if (step === 2) populateSummary();
+    showStep(step + 1);
+}
 
-            var totalInterest = parseFloat(amount) * INTEREST_RATE * parseInt(term);
-            var total = parseFloat(amount) + totalInterest;
-            var monthly = total / parseInt(term);
-            document.getElementById('sum-name').textContent = name;
-            document.getElementById('sum-phone').textContent = '+263' + phone;
-            document.getElementById('sum-type').textContent = type;
-            document.getElementById('sum-amount').textContent = 'USD ' + parseInt(amount).toLocaleString();
-            document.getElementById('sum-term').textContent = term + (term === '1' ? ' Month' : ' Months');
-            document.getElementById('sum-emi').textContent = 'USD ' + monthly.toFixed(2);
-        }
+function prevStep(step) {
+    showStep(step - 1);
+}
 
-        async function submitApplication() {
-            var btn = document.getElementById('submitBtn');
-            btn.disabled = true;
-            btn.innerHTML = 'Redirecting...';
+function formatUSD(value) {
+    return "USD " + value.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
 
-            var name = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
-            var phone = document.getElementById('phone').value;
-            var amount = document.getElementById('loanAmount').value;
-            var term = document.getElementById('loanTerm').value;
-            var type = document.getElementById('loanType').value;
+function populateSummary() {
+    const amount = Number(document.getElementById("loanAmount").value);
+    const term = Number(document.getElementById("loanTerm").value);
+    const monthly = amount / term;
 
+    document.getElementById("sum-name").textContent =
+        document.getElementById("firstName").value.trim() + " " +
+        document.getElementById("lastName").value.trim();
 
+    document.getElementById("sum-phone").textContent =
+        document.getElementById("phone").value.trim();
 
-            var params = new URLSearchParams({
-                name: name,
-                phone: phone,
-                amount: amount,
-                duration: term + (term === '1' ? ' Month' : ' Months'),
-                purpose: type
-            });
+    document.getElementById("sum-type").textContent =
+        document.getElementById("loanType").selectedOptions[0].text;
 
-            window.location.href = 'login.html?' + params.toString();
-        }
-    </script>
+    document.getElementById("sum-amount").textContent =
+        formatUSD(amount);
+
+    document.getElementById("sum-term").textContent =
+        term + (term === 1 ? " month" : " months");
+
+    document.getElementById("sum-emi").textContent =
+        formatUSD(monthly);
+}
+
+document.getElementById("loanForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (!validateStep(3)) return;
+
+    const amount = Number(document.getElementById("loanAmount").value);
+    const term = Number(document.getElementById("loanTerm").value);
+
+    const params = new URLSearchParams({
+        name: document.getElementById("firstName").value.trim() + " " +
+              document.getElementById("lastName").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        amount: String(amount),
+        duration: term + (term === 1 ? " Month" : " Months"),
+        purpose: document.getElementById("loanType").value
+    });
+
+    // Pass the application details to your next page.
+    window.location.href = "login.html?" + params.toString();
+});
+</script>
 </body>
-</html>
+                                     </html>
