@@ -429,14 +429,15 @@ function nextStep(step) {
     if (!validateStep(step)) return;
 
     if (step === 1) {
-        const amount = Number(document.getElementById("loanAmount").value);
+    const amount = Number(
+        document.getElementById("loanAmount").value
+    );
 
-        if (amount < 500 || amount > 10000 || amount % 100 !== 0) {
-            alert("Enter an amount between USD 500 and USD 10,000 in increments of USD 100.");
-            return;
-        }
+    if (amount < 100 || amount > 1500) {
+        alert("Enter an amount between USD 100 and USD 1,500.");
+        return;
     }
-
+    }
     if (step === 2) populateSummary();
     showStep(step + 1);
 }
