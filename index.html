@@ -3,420 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#003366">
-<title>EcoCash | Festive Interest-Free Loans</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<meta name="theme-color" content="#08070a">
+<title>cashiah | Festive Loan Offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root {
-    --blue-dark:#001a33;
-    --blue:#003b82;
-    --blue-light:#0878d1;
-    --red:#e30613;
-    --gold:#ffca28;
-    --white:#fff;
-    --text:#10233d;
-    --muted:#607087;
-    --border:#d8e3f0;
+:root{
+  color-scheme:light;
+  --bg:#f7f3f6;--surface:#fff;--surface-2:#fbf6f9;--ink:#1b1119;
+  --muted:#786b76;--line:#eadfe7;--navy:#160d15;--blue:#e83e8c;
+  --blue-2:#ff78b8;--cyan:#ffb4d5;--green:#159b72;--shadow:0 16px 45px rgba(35,10,25,.09);
+  --radius:22px;
 }
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body {
-    font-family:Poppins,Arial,sans-serif;
-    color:var(--text);
-    background:#f0f5fb;
-    line-height:1.5;
-    overflow-x:hidden;
-}
-header {
-    background:white;
-    padding:15px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 3px 14px #001a3310;
-}
-.logo { font-size:26px; font-weight:900; text-decoration:none; }
-.eco { color:var(--blue); }
-.cash { color:var(--red); }
-nav { display:flex; gap:20px; }
-nav a { text-decoration:none; color:var(--text); font-size:13px; font-weight:600; }
-
-.hero {
-    max-width:1150px;
-    margin:auto;
-    padding:55px 5%;
-    display:grid;
-    grid-template-columns:1fr 0.9fr;
-    align-items:center;
-    gap:40px;
-}
-.promo {
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:9px 14px;
-    border-radius:50px;
-    background:#fff0f0;
-    color:#c90016;
-    border:1px solid #ffd1d5;
-    font-weight:800;
-    font-size:12px;
-    margin-bottom:20px;
-}
-h1 {
-    font-size:clamp(2.5rem,5vw,4.2rem);
-    line-height:1.05;
-    font-weight:900;
-    letter-spacing:-2px;
-    color:var(--blue-dark);
-}
-h1 .interest { color:var(--red); }
-h1 .festive { color:#e8a400; }
-.subtitle {
-    margin-top:20px;
-    color:var(--muted);
-    font-size:15px;
-    max-width:440px;
-}
-.limited {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-top:25px;
-    padding:15px;
-    background:#fff;
-    border-radius:15px;
-    border:1px solid var(--border);
-    max-width:390px;
-}
-.limited i { font-size:25px; color:var(--red); }
-.limited strong { display:block; color:var(--blue-dark); font-size:15px; }
-.limited span { color:var(--muted); font-size:12px; }
-
-.glass-card {
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:25px;
-    padding:28px;
-    box-shadow:0 20px 55px #00336617;
-    position:relative;
-    overflow:hidden;
-}
-.glass-card:before {
-    content:"";
-    position:absolute;
-    top:0; left:0; right:0;
-    height:7px;
-    background:linear-gradient(90deg,var(--blue),var(--red),var(--gold));
-}
-.calc-header { text-align:center; margin-bottom:25px; }
-.calc-header .icon {
-    width:65px; height:65px;
-    margin:0 auto 12px;
-    border-radius:50%;
-    display:grid; place-items:center;
-    color:white;
-    font-size:27px;
-    background:var(--blue);
-}
-.calc-header h2 { font-size:23px; font-weight:900; }
-.calc-header p { font-size:12px; color:var(--muted); }
-
-.input-group { margin-bottom:25px; }
-.label-row {
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    align-items:center;
-    margin-bottom:12px;
-}
-.label-row label { font-size:13px; font-weight:700; }
-.label-row span { font-size:17px; color:var(--blue); font-weight:900; }
-
-input[type=range] {
-    width:100%;
-    accent-color:var(--blue);
-    cursor:pointer;
-}
-.slider-limits {
-    display:flex;
-    justify-content:space-between;
-    color:var(--muted);
-    font-size:10px;
-    margin-top:5px;
-}
-.result-box {
-    padding:19px;
-    border-radius:15px;
-    background:#edf6ff;
-    margin-bottom:18px;
-    text-align:center;
-}
-.result-box .result-label { font-size:12px; color:var(--muted); }
-.result-box .monthly-payment {
-    color:var(--blue);
-    font-size:clamp(1.7rem,4vw,2.3rem);
-    font-weight:900;
-    line-height:1.3;
-}
-.interest-note {
-    display:inline-block;
-    margin-top:7px;
-    background:#dff7e8;
-    color:#08783d;
-    border-radius:30px;
-    padding:5px 12px;
-    font-size:11px;
-    font-weight:800;
-}
-.btn-apply {
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:17px;
-    border:0;
-    border-radius:13px;
-    background:var(--red);
-    color:white;
-    font-family:inherit;
-    font-size:15px;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 8px 20px #e3061330;
-    transition:transform .2s,background .2s;
-}
-.btn-apply:hover { background:#bf0010; transform:translateY(-2px); }
-.terms { text-align:center; font-size:10px; color:var(--muted); margin-top:12px; }
-
-#benefits { padding:40px 5% 60px; text-align:center; }
-.section-title { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; color:var(--blue-dark); }
-.section-subtitle { color:var(--muted); font-size:13px; margin:7px 0 27px; }
-.benefits-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    max-width:950px;
-    margin:auto;
-}
-.benefit-card {
-    background:white;
-    padding:25px 18px;
-    border:1px solid var(--border);
-    border-radius:17px;
-}
-.benefit-icon {
-    width:55px; height:55px;
-    border-radius:16px;
-    display:grid; place-items:center;
-    background:#edf5ff;
-    color:var(--blue);
-    font-size:23px;
-    margin:0 auto 13px;
-}
-.benefit-card h3 { font-size:15px; margin-bottom:5px; }
-.benefit-card p { font-size:12px; color:var(--muted); }
-
-.season-banner {
-    max-width:950px;
-    margin:0 auto 55px;
-    padding:25px;
-    border-radius:20px;
-    color:white;
-    background:linear-gradient(120deg,#001a33,#0755a6);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-.season-banner h2 { font-size:clamp(1.4rem,3vw,2rem); }
-.season-banner p { font-size:13px; opacity:.9; }
-.season-banner .tree { font-size:60px; }
-
-footer {
-    padding:25px 5%;
-    text-align:center;
-    color:white;
-    background:var(--blue-dark);
-    font-size:12px;
-}
-footer p { opacity:.8; margin-top:5px; }
-
-@media(max-width:800px) {
-    nav { gap:12px; }
-    nav a { font-size:11px; }
-    .hero { grid-template-columns:1fr; padding:38px 5%; gap:30px; }
-    .hero-left { text-align:center; }
-    .subtitle { margin-left:auto; margin-right:auto; }
-    .limited { margin:22px auto 0; text-align:left; }
-    .benefits-grid { grid-template-columns:1fr; max-width:430px; }
-    .season-banner { margin-left:5%; margin-right:5%; }
-}
-@media(max-width:420px) {
-    header { padding:12px 4%; }
-    .logo { font-size:22px; }
-    nav { gap:9px; }
-    nav a { font-size:10px; }
-    .hero { padding-top:30px; }
-    .glass-card { padding:23px 18px; }
-    h1 { letter-spacing:-1px; }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.site-header{height:76px;padding:0 max(5%,calc((100% - 1160px)/2));display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-weight:800;font-size:23px;letter-spacing:-1px}
+.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(145deg,#f04b9a,#a91d63);display:grid;place-items:center;color:#fff;font-size:16px;box-shadow:0 7px 16px #e83e8c33}
+.brand-name span{color:var(--blue)}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:13px;font-weight:700;color:#5d6b80}
+.nav a:hover{color:var(--blue)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:39px;height:39px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);cursor:pointer}
+.header-cta{background:var(--blue);color:#fff;padding:11px 17px;border-radius:12px;font-size:12px;font-weight:800}
+main{max-width:1160px;margin:auto;padding:42px 24px 65px}
+.hero{display:grid;grid-template-columns:1.03fr .97fr;gap:30px;align-items:stretch}
+.hero-copy{padding:25px 4px 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid #dce7ff;background:#fff0f7;color:#b91f69;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.5px}
+.eyebrow i{font-size:12px}
+h1{font-family:Manrope,sans-serif;font-size:clamp(36px,5vw,58px);line-height:1.08;letter-spacing:-2.7px;margin:22px 0 16px;font-weight:800;color:var(--navy)}
+h1 .accent{color:var(--blue)}
+.lead{max-width:460px;color:var(--muted);font-size:15px;line-height:1.8}
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin-top:27px}
+.trust-item{display:flex;align-items:center;gap:9px;color:#53647b;font-size:12px;font-weight:700}
+.trust-item i{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:#e9f7f2;color:var(--green)}
+.offer-note{display:flex;align-items:center;gap:13px;margin-top:30px;max-width:410px;padding:15px 17px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.offer-note .note-icon{width:40px;height:40px;flex:0 0 40px;border-radius:13px;background:#fff3e5;color:#d78320;display:grid;place-items:center}
+.offer-note strong{display:block;font-size:12px}
+.offer-note span{font-size:11px;color:var(--muted)}
+.calculator{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:25px;box-shadow:var(--shadow)}
+.calc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:21px}
+.calc-title{display:flex;align-items:center;gap:12px}
+.calc-icon{width:43px;height:43px;border-radius:14px;background:#fff0f7;color:var(--blue);display:grid;place-items:center;font-size:17px}
+.calc-title h2{font-family:Manrope,sans-serif;font-size:17px;font-weight:800;letter-spacing:-.4px}
+.calc-title p{font-size:11px;color:var(--muted)}
+.live-dot{font-size:10px;color:var(--green);font-weight:800;display:flex;align-items:center;gap:6px}
+.live-dot:before{content:"";width:7px;height:7px;background:#20b486;border-radius:50%}
+.amount-panel{background:linear-gradient(135deg,#08070a,#21101c 72%,#701c4b);border-radius:19px;padding:19px 20px;color:#fff;margin-bottom:22px;position:relative;overflow:hidden}
+.amount-panel:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff20;border-radius:50%;right:-50px;top:-85px;box-shadow:0 0 0 22px #ffffff09,0 0 0 45px #ffffff07}
+.amount-caption{font-size:11px;color:#c5d7f5;font-weight:600}
+.amount-value{font-family:Manrope,sans-serif;font-size:32px;letter-spacing:-1px;font-weight:800;margin-top:2px}
+.amount-value small{font-size:13px;font-weight:700;letter-spacing:0;color:#d9e7ff}
+.amount-range{display:flex;justify-content:space-between;color:#d4e2fa;font-size:10px;margin-top:14px}
+input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
+.amount-panel input[type=range]{accent-color:#ff78b8;margin-top:13px}
+.field{margin-bottom:20px}
+.field-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}
+.field-head label{font-size:12px;font-weight:800}
+.field-head output{font-size:12px;font-weight:800;color:var(--blue)}
+.range-ends{display:flex;justify-content:space-between;color:#8b98aa;font-size:10px;margin-top:5px}
+.term-options{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:11px}
+.term-option{border:1px solid var(--line);background:var(--surface-2);border-radius:10px;padding:8px 2px;font-size:11px;font-weight:700;color:#66758b;cursor:pointer}
+.term-option.active{border-color:var(--blue);background:#fff0f7;color:var(--blue)}
+.repayment{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff0f7;border:1px solid #f8d6e8;padding:15px 16px;border-radius:15px;margin:21px 0 15px}
+.repayment span{display:block;color:#63748c;font-size:11px;font-weight:600}
+.repayment strong{display:block;color:#b91f69;font-family:Manrope,sans-serif;font-size:24px;letter-spacing:-.7px}
+.repayment .repay-icon{width:38px;height:38px;border-radius:12px;background:#fff;color:var(--blue);display:grid;place-items:center}
+.apply-btn{display:flex;justify-content:center;align-items:center;gap:10px;width:100%;padding:15px;border:0;border-radius:13px;background:var(--blue);color:white;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 9px 20px #e83e8c35;transition:.2s}
+.apply-btn:hover{background:#174fc4;transform:translateY(-1px)}
+.terms{text-align:center;font-size:10px;color:#8793a4;margin-top:11px;line-height:1.6}
+.section{padding:65px 0 10px}
+.section-heading{text-align:center;margin-bottom:27px}
+.section-heading h2{font-family:Manrope,sans-serif;font-size:27px;letter-spacing:-1px;font-weight:800}
+.section-heading p{font-size:13px;color:var(--muted);margin-top:5px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.feature-icon{width:43px;height:43px;border-radius:13px;background:#fff0f7;color:var(--blue);display:grid;place-items:center;font-size:16px;margin-bottom:15px}
+.feature h3{font-family:Manrope,sans-serif;font-size:14px;margin-bottom:5px}
+.feature p{font-size:12px;color:var(--muted);line-height:1.7}
+.bottom-banner{margin-top:52px;padding:27px 30px;border-radius:22px;background:linear-gradient(110deg,#08070a,#3b1230);color:white;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative}
+.bottom-banner:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #ffffff18;border-radius:50%;right:10%;top:-140px;box-shadow:0 0 0 30px #ffffff08,0 0 0 60px #ffffff06}
+.bottom-banner h2{font-family:Manrope,sans-serif;font-size:22px;letter-spacing:-.7px}
+.bottom-banner p{font-size:12px;color:#d1def2;margin-top:4px}
+.banner-icon{font-size:38px;color:#ff9bc8;padding:0 12px;z-index:1}
+footer{background:#07172d;color:#fff;padding:28px 5%;text-align:center}
+footer .brand{justify-content:center;color:#fff}
+footer .brand-name span{color:#79a7ff}
+footer p{font-size:11px;color:#a9b8ce;margin-top:7px}
+footer .fine-print{margin-top:13px;color:#8092ad}
+body.dark{color-scheme:dark;--bg:#08070a;--surface:#121015;--surface-2:#1b151d;--ink:#f8edf4;--muted:#b7a9b4;--line:#30232d;--navy:#fff5fa;--blue:#ff5aa8;--blue-2:#ff91c3;--cyan:#ffc0dc;--shadow:0 16px 45px rgba(0,0,0,.32)}
+body.dark .site-header{background:#121015}
+body.dark .nav a{color:#d0c1cc}
+body.dark .theme-toggle{background:#1b151d;color:#fff}
+body.dark .eyebrow{background:#35152b;border-color:#67304f;color:#ffacd1}
+body.dark .offer-note{background:#121015}
+body.dark .calc-icon,body.dark .feature-icon{background:#35152b}
+body.dark .term-option{background:#1b151d;color:#d0c1cc}
+body.dark .term-option.active{background:#4a1a37;color:#ffc1dc;border-color:#a83d76}
+body.dark .repayment{background:#271522;border-color:#51263f}
+body.dark .repayment .repay-icon{background:#4a1a37}
+body.dark .feature{background:#121015}
+body.dark .trust-item{color:#d0c1cc}
+body.dark .trust-item i{background:#18372e}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:22px}.hero-copy{text-align:center;padding:8px 0}.lead{margin:auto}.trust-row{justify-content:center}.offer-note{margin:25px auto 0;text-align:left}.calculator{max-width:600px;width:100%;margin:auto}.features{grid-template-columns:1fr;max-width:600px;margin:auto}}
+@media(max-width:560px){.site-header{height:66px;padding:0 17px}.brand{font-size:20px}.brand-mark{width:33px;height:33px}.nav{display:none}.header-cta{padding:10px 12px;font-size:11px}.header-actions{gap:8px}main{padding:27px 16px 45px}.hero-copy{padding:5px 0}h1{font-size:39px;letter-spacing:-1.8px;margin:18px 0 13px}.lead{font-size:13px}.trust-row{gap:12px}.trust-item{font-size:10px}.calculator{padding:18px;border-radius:21px}.amount-value{font-size:29px}.term-options{gap:5px}.term-option{font-size:10px}.section{padding-top:48px}.section-heading h2{font-size:23px}.bottom-banner{padding:22px 19px}.bottom-banner h2{font-size:18px}.banner-icon{font-size:30px;padding:0}.offer-note{max-width:100%}}
 </style>
 </head>
-
-<body>
-<header>
-    <a href="#home" class="logo"><span class="eco">Eco</span><span class="cash">Cash</span></a>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<body class="dark">
+<header class="site-header">
+  <a href="#home" class="brand" aria-label="cashiah home">
+    <span class="brand-mark"><i class="fa-solid fa-wallet"></i></span>
+    <span class="brand-name"><span>Cashia</span></span>
+  </a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#home">Home</a><a href="#benefits">Why Cashia</a><a href="#contact">Support</a>
+  </nav>
+  <div class="header-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-sun"></i></button>
+    <a class="header-cta" href="apply.html">Get started <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
 </header>
 
 <main>
 <section class="hero" id="home">
-    <div class="hero-left">
-        <div class="promo">
-            <i class="fa-solid fa-gift"></i>
-            FESTIVE SEASON OFFER
-        </div>
+  <div class="hero-copy">
+    <div class="eyebrow"><i class="fa-solid fa-sparkles"></i> FESTIVE SEASON OFFER</div>
+    <h1>Make room for a <span class="accent">merrier</span> Christmas.</h1>
+    <p class="lead">Explore the festive loan offer and estimate your repayments in a few simple steps. Clear information, a simple process, and control over your choices.</p>
+    <div class="trust-row">
+      <div class="trust-item"><i class="fa-solid fa-bolt"></i> Simple online process</div>
+      <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Clear offer terms</div>
+    </div>
+    <div class="offer-note">
+      <div class="note-icon"><i class="fa-solid fa-gift"></i></div>
+      <div><strong>Festive promotional offer</strong><span>Check eligibility and review all applicable fees and terms.</span></div>
+    </div>
+  </div>
 
-        <h1>
-            <span class="interest">0% INTEREST</span><br>
-            LOANS FOR A<br>
-            <span class="festive">MERRY CHRISTMAS!</span>
-        </h1>
-
-        <p class="subtitle">
-            Make your festive plans happen with an interest-free loan offer.
-        </p>
-
-        <div class="limited">
-            <i class="fa-solid fa-fire"></i>
-            <div>
-                <strong>FIRST 1,000 APPLICANTS!</strong>
-                <span>Check eligibility and offer terms.</span>
-            </div>
-        </div>
+  <div class="calculator" aria-label="Festive loan calculator">
+    <div class="calc-top">
+      <div class="calc-title">
+        <div class="calc-icon"><i class="fa-solid fa-calculator"></i></div>
+        <div><h2>Loan calculator</h2><p>Plan your repayments</p></div>
+      </div>
+      <div class="live-dot">Calculator</div>
     </div>
 
-    <div class="hero-right">
-        <div class="glass-card">
-            <div class="calc-header">
-                <div class="icon"><i class="fa-solid fa-gift"></i></div>
-                <h2>Festive Loan Calculator</h2>
-                <p>Estimate your repayments</p>
-            </div>
-
-            <div class="input-group">
-                <div class="label-row">
-                    <label for="amount-slider">Loan Amount</label>
-                    <span id="amount-display">USD 1,500</span>
-                </div>
-                <input type="range" id="amount-slider"
-       min="100" max="1500" step="1" value="500">
-<div class="slider-limits">
-    <span>USD 100</span>
-    <span>USD 1,500</span>
-</div>
-
-            <div class="input-group">
-                <div class="label-row">
-                    <label for="term-slider">Repayment Period</label>
-                    <span id="term-display">6 months</span>
-                </div>
-                <input type="range" id="term-slider" min="1" max="6" step="1" value="6">
-                <div class="slider-limits"><span>1 month</span><span>6 months</span></div>
-            </div>
-
-            <div class="result-box">
-                <div class="result-label">Estimated monthly repayment</div>
-                <div class="monthly-payment" id="payment-display">USD 416.67</div>
-                <div class="interest-note">0% INTEREST</div>
-            </div>
-
-            <button class="btn-apply" id="apply-btn">
-                CHECK ELIGIBILITY <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <p class="terms">Eligibility, fees and loan terms apply. Review the agreement before accepting.</p>
-        </div>
+    <div class="amount-panel">
+      <div class="amount-caption">Choose your loan amount</div>
+      <div class="amount-value"><small>KSh</small> <span id="amount-display">5,000</span></div>
+      <input type="range" id="amount-slider" min="5000" max="50000" step="500" value="5000" aria-label="Loan amount">
+      <div class="amount-range"><span>KSh 5,000</span><span>KSh 50,000</span></div>
     </div>
+
+    <div class="field">
+      <div class="field-head"><label for="term-slider">Repayment period</label><output id="term-display" for="term-slider">6 months</output></div>
+      <input type="range" id="term-slider" min="1" max="6" step="1" value="6" aria-label="Repayment period">
+      <div class="range-ends"><span>1 month</span><span>6 months</span></div>
+      <div class="term-options" id="term-options" aria-label="Choose repayment period">
+        <button class="term-option" data-months="1" type="button">1 mo</button>
+        <button class="term-option" data-months="2" type="button">2 mo</button>
+        <button class="term-option" data-months="3" type="button">3 mo</button>
+        <button class="term-option" data-months="4" type="button">4 mo</button>
+        <button class="term-option" data-months="5" type="button">5 mo</button>
+        <button class="term-option active" data-months="6" type="button">6 mo</button>
+      </div>
+    </div>
+
+    <div class="repayment">
+      <div><span>Estimated monthly repayment</span><strong id="payment-display">USD 83.33</strong></div>
+      <div class="repay-icon"><i class="fa-solid fa-calendar-check"></i></div>
+    </div>
+    <button class="apply-btn" id="apply-btn" type="button">CHECK ELIGIBILITY <i class="fa-solid fa-arrow-right"></i></button>
+    <p class="terms">Illustrative estimate at 0% interest, before any applicable fees. Eligibility and offer terms apply. Review the agreement before accepting.</p>
+  </div>
 </section>
 
-<section id="benefits">
-    <h2 class="section-title">A Little More Christmas Cheer</h2>
-    <p class="section-subtitle">Simple. Digital. Convenient.</p>
-
-    <div class="benefits-grid">
-        <div class="benefit-card">
-            <div class="benefit-icon"><i class="fa-solid fa-percent"></i></div>
-            <h3>0% Interest</h3>
-            <p>No interest during the eligible promotional offer. Applicable fees, if any, will be disclosed.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-            <h3>Apply by Phone</h3>
-            <p>Complete your application online.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon"><i class="fa-solid fa-calendar-check"></i></div>
-            <h3>Know Your Terms</h3>
-            <p>Review repayment details before accepting an offer.</p>
-        </div>
-    </div>
+<section class="section" id="benefits">
+  <div class="section-heading"><h2>A simpler way to plan</h2><p>Useful information at every step of your application.</p></div>
+  <div class="features">
+    <article class="feature"><div class="feature-icon"><i class="fa-solid fa-percent"></i></div><h3>Promotional 0% interest</h3><p>The calculator illustrates a 0% interest estimate. Check your individual offer for any applicable fees and conditions.</p></article>
+    <article class="feature"><div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>Apply online</h3><p>Start your application from your phone or computer using the online application process.</p></article>
+    <article class="feature"><div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div><h3>Understand your repayments</h3><p>Adjust the amount and repayment period to see an illustrative monthly repayment before continuing.</p></article>
+  </div>
 </section>
 
-<section class="season-banner">
-    <div>
-        <h2>Make This Season Special 🎄</h2>
-        <p>Explore the festive loan offer and check your eligibility.</p>
-    </div>
-    <div class="tree" aria-hidden="true">🎄🎁</div>
+<section class="bottom-banner">
+  <div><h2>Make this festive season special.</h2><p>Estimate your repayments and check whether you qualify for the offer.</p></div>
+  <div class="banner-icon" aria-hidden="true"><i class="fa-solid fa-gift"></i></div>
 </section>
 </main>
 
 <footer id="contact">
-    <div class="logo"><span style="color:white">Eco</span><span class="cash">Cash</span></div>
-    <p>Festive loan promotion. Eligibility and terms apply.</p>
-    <p>Only use verified, official lending channels.</p>
-    <p style="margin-top:15px">&copy; 2026. All rights reserved.</p>
+  <div class="brand"><span class="brand-mark"><i class="fa-solid fa-wallet"></i></span><span class="brand-name">Eco<span>Cash</span></span></div>
+  <p>Festive loan promotion. Eligibility, fees and terms apply.</p>
+  <p>Only use verified, official lending channels.</p>
+  <p class="fine-print">&copy; 2026 cashiah. All rights reserved.</p>
 </footer>
 
 <script>
-const amountSlider = document.getElementById('amount-slider');
-const termSlider = document.getElementById('term-slider');
-const amountDisplay = document.getElementById('amount-display');
-const termDisplay = document.getElementById('term-display');
-const paymentDisplay = document.getElementById('payment-display');
-const applyBtn = document.getElementById('apply-btn');
+const amountSlider=document.getElementById('amount-slider');
+const termSlider=document.getElementById('term-slider');
+const amountDisplay=document.getElementById('amount-display');
+const termDisplay=document.getElementById('term-display');
+const paymentDisplay=document.getElementById('payment-display');
+const applyBtn=document.getElementById('apply-btn');
 
-function calculatePayment() {
-    const principal = Number(amountSlider.value);
-    const months = Number(termSlider.value);
-
-    // Illustrative calculation at 0% interest, before any applicable fees.
-    const monthly = principal / months;
-
-    amountDisplay.textContent = 'USD ' + principal.toLocaleString('en-US');
-    termDisplay.textContent = months + (months === 1 ? ' month' : ' months');
-    paymentDisplay.textContent = 'USD ' + monthly.toLocaleString('en-US', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    });
+function calculatePayment(){
+  const principal=Number(amountSlider.value);
+  const months=Number(termSlider.value);
+  const monthly=principal/months;
+  amountDisplay.textContent=principal.toLocaleString('en-US');
+  termDisplay.textContent=months+(months===1?' month':' months');
+  paymentDisplay.textContent='KSh '+monthly.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  document.querySelectorAll('.term-option').forEach(button=>{
+    const active=Number(button.dataset.months)===months;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
 }
-
-amountSlider.addEventListener('input', calculatePayment);
-termSlider.addEventListener('input', calculatePayment);
-calculatePayment();
-
-applyBtn.addEventListener('click', function() {
-    window.location.href = 'apply.html';
+amountSlider.addEventListener('input',calculatePayment);
+termSlider.addEventListener('input',calculatePayment);
+document.querySelectorAll('.term-option').forEach(button=>{
+  button.addEventListener('click',()=>{
+    termSlider.value=button.dataset.months;
+    calculatePayment();
+  });
 });
+applyBtn.addEventListener('click',()=>{window.location.href='apply.html';});
+
+const themeToggle=document.getElementById('theme-toggle');
+themeToggle.addEventListener('click',()=>{
+  const dark=document.body.classList.toggle('dark');
+  themeToggle.innerHTML=dark?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';
+  themeToggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+  document.querySelector('meta[name="theme-color"]').content=dark?'#08070a':'#f7f3f6';
+});
+calculatePayment();
 </script>
 </body>
 </html>
