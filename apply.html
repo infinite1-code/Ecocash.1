@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -668,19 +667,23 @@ function validateStep(step) {
 }
 
 function nextStep(step) {
+
+function nextStep(step) {
     if (!validateStep(step)) return;
 
     if (step === 1) {
-    const amount = Number(
-        document.getElementById("loanAmount").value
-    );
+        const amount = Number(
+            document.getElementById("loanAmount").value
+        );
 
-    if (amount < 100 || amount > 1500) {
-        alert("Enter an amount between USD 100 and USD 1,500.");
-        return;
+        if (amount < 5000 || amount > 50000 || amount % 500 !== 0) {
+            alert("Enter an amount between KSh 5,000 and KSh 50,000 in increments of KSh 500.");
+            return;
+        }
     }
-    }
+
     if (step === 2) populateSummary();
+
     showStep(step + 1);
 }
 
@@ -688,12 +691,14 @@ function prevStep(step) {
     showStep(step - 1);
 }
 
-function formatUSD(value) {
-    return "USD " + value.toLocaleString("en-US", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+function formatKSh(value) {
+    return "KSh " + Number(value).toLocaleString("en-KE", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
     });
 }
+
+
 
 function populateSummary() {
     const amount = Number(document.getElementById("loanAmount").value);
